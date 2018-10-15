@@ -10,6 +10,25 @@
 body {
   background-color: green;
 }
+#header {
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+#dealer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+}
+#player {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+}
 
 .button {
     padding: 15px 32px;
@@ -50,11 +69,27 @@ body {
 }
 
 </style>
+</head>
+
 <body>
+  <div id="header">
+      <h1>Blackjack</h1>
+  </div>
+
+  <div id="dealer">
+    <img src="dealer.jpg" alt="dealer">
+  </div>
+<br>
+  <div id="player">
+      <img src="player.jpg" alt="player">
+  </div>
+<br>
+
   <button id="hit" type="button">Hit!</button>
   <button id="stand" type="button">Stand!</button>
   <button id="bet" type="button">Bet!</button>
   <button id="double" type="button">Double Down!</button>
-  <button id="new"type="button">New Game!</button>
+  <button id="new" type="button">New Game!</button>
+
 </body>
 </html>
