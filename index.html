@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <title>Point Park Blackjack</title>
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="jquery.js"></script>
-
+  <script src="blackjack.js"></script>
 <style>
 body {
   background-color: green;
@@ -18,16 +19,26 @@ body {
 }
 
 #dealer {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 15%;
+  clear:both;
+  border: 1px solid gray;
+  height: 250px;
+  width: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 #player {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 15%;
+  clear:both;
+  border: 1px solid gray;
+  height: 250px;
+  width: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 .button {
@@ -68,28 +79,62 @@ body {
   left: 52%;
 }
 
+.current_hand{
+	float:left;
+}
+
+/*
+#hit, #stand, #btnRestart{
+	display:none;
+	float:left;
+}
+*/
+
 </style>
+<script>
+$(function() {
+  $("#new").click(function() {
+// Controller (Blackjack), fires when you click on newgame
+// intructs the model to start new game; clears all arrays, 2 new cards dealt
+    blackjack.newGame();
+  });
+
+  // intructs the model to draw 2 new cards for new game
+  $("#bet").click( function() {
+		blackjack.deal();
+//		$(this).toggle();
+//		$("#Hit").toggle();
+	});
+
+  $("#hit").click( function() {
+    blackjack.hit();
+//		$(this).toggle();
+//		$("#Hit").toggle();
+  });
+});
+</script>
 </head>
 
 <body>
   <div id="header">
-      <h1>Blackjack</h1>
+    <h1>Blackjack</h1>
   </div>
-
+<!--
   <div id="dealer">
-    <img src="dealer.jpg" alt="dealer">
   </div>
+-->
+<h3 id="pTotal"></h3>
+<h3 id="pResult"></h3>
 <br>
   <div id="player">
-      <img src="player.jpg" alt="player">
   </div>
 <br>
-
+<div>
   <button id="hit" type="button">Hit!</button>
   <button id="stand" type="button">Stand!</button>
   <button id="bet" type="button">Bet!</button>
   <button id="double" type="button">Double Down!</button>
   <button id="new" type="button">New Game!</button>
-
+</div>
 </body>
 </html>
