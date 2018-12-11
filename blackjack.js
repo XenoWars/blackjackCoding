@@ -66,7 +66,9 @@ var deck = [
 ];
 
 function newGame(){
-	//$("#result").toggle();
+	$("#pResult").empty();
+	$("#pTotal").empty();
+
 	//$("#new").toggle();
 	$("#player").empty();
 
@@ -74,7 +76,7 @@ function newGame(){
 	hand.cards.length = 0;
 	hand.current_total = 0;
 
-//	$("#bet").toggle()
+	$("#bet").toggle()
 //				 .trigger('click');
 }
 
@@ -91,9 +93,11 @@ var hand = {
     $("#pTotal").html("Total: " + this.current_total );
 
     if(this.current_total > 21){
+			$("#stand").trigger("click");
       $("#pResult").html("BUST!")
                .attr('class', 'lose');
     }else if(this.current_total == 21){
+			$("#stand").trigger("click");
       $("#pResult").html("BlackJack!")
                .attr('class', 'win');
     }else{ }
